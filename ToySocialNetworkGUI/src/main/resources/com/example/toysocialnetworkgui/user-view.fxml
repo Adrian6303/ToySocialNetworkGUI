@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="387.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toysocialnetworkgui.controller.UserController">
+   <children>
+      <TableView fx:id="usersTableView" layoutX="24.0" layoutY="26.0" prefHeight="303.0" prefWidth="610.0">
+         <columns>
+            <TableColumn fx:id="firstNameColumn" prefWidth="296.7999687194824" text="Prenume" />
+            <TableColumn fx:id="lastNameColumn" prefWidth="313.60003662109375" text="Nume" />
+         </columns>
+      </TableView>
+      <Button layoutX="453.0" layoutY="343.0" mnemonicParsing="false" onAction="#addButtonHandle" text="Adauga" />
+      <Button layoutX="517.0" layoutY="343.0" mnemonicParsing="false" onAction="#editButtonHandle" text="Modifica" />
+      <Button layoutX="583.0" layoutY="343.0" mnemonicParsing="false" onAction="#deleteButtonHandle" text="Sterge" />
+      <Button layoutX="24.0" layoutY="344.0" mnemonicParsing="false" onAction="#requestsButtonHandle" text="Cereri" />
+      <Button layoutX="91.0" layoutY="344.0" mnemonicParsing="false" onAction="#messagesButtonHandle" text="Mesaje" />
+      <Button fx:id="previousButton" layoutX="279.0" layoutY="344.0" mnemonicParsing="false" onAction="#goToPreviousPageHandle" text="Anterior" />
+      <Button fx:id="nextButton" layoutX="350.0" layoutY="344.0" mnemonicParsing="false" onAction="#goToNextPageHandle" text="Urmator" />
+      <Button fx:id="moreButton" layoutX="246.0" layoutY="344.0" mnemonicParsing="false" onAction="#moreRecordsPerPageHandle" text="+" />
+      <Button fx:id="lessButton" layoutX="215.0" layoutY="344.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" onAction="#lessRecordsPerPageHandle" text="-" />
+   </children>
+</AnchorPane>
