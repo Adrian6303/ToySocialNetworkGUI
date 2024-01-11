@@ -16,11 +16,10 @@
       <Button layoutX="453.0" layoutY="343.0" mnemonicParsing="false" onAction="#addButtonHandle" text="Adauga" />
       <Button layoutX="517.0" layoutY="343.0" mnemonicParsing="false" onAction="#editButtonHandle" text="Modifica" />
       <Button layoutX="583.0" layoutY="343.0" mnemonicParsing="false" onAction="#deleteButtonHandle" text="Sterge" />
-      <Button layoutX="24.0" layoutY="344.0" mnemonicParsing="false" onAction="#requestsButtonHandle" text="Cereri" />
-      <Button layoutX="91.0" layoutY="344.0" mnemonicParsing="false" onAction="#messagesButtonHandle" text="Mesaje" />
       <Button fx:id="previousButton" layoutX="279.0" layoutY="344.0" mnemonicParsing="false" onAction="#goToPreviousPageHandle" text="Anterior" />
       <Button fx:id="nextButton" layoutX="350.0" layoutY="344.0" mnemonicParsing="false" onAction="#goToNextPageHandle" text="Urmator" />
       <Button fx:id="moreButton" layoutX="246.0" layoutY="344.0" mnemonicParsing="false" onAction="#moreRecordsPerPageHandle" text="+" />
-      <Button fx:id="lessButton" layoutX="215.0" layoutY="344.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" onAction="#lessRecordsPerPageHandle" text="-" />
+      <Button fx:id="lessButton" layoutX="215.0" layoutY="344.0" mnemonicParsing="false" onAction="#lessRecordsPerPageHandle" prefHeight="26.0" prefWidth="25.0" text="-" />
+      <Button layoutX="68.0" layoutY="344.0" mnemonicParsing="false" onAction="#loginButtonHandle" text="Login" />
    </children>
 </AnchorPane>

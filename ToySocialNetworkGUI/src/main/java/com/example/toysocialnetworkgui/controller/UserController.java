@@ -2,10 +2,7 @@ package com.example.toysocialnetworkgui.controller;
 
 import com.example.toysocialnetworkgui.HelloApplication;
 import com.example.toysocialnetworkgui.domain.Utilizator;
-import com.example.toysocialnetworkgui.service.ServiceCerere;
-import com.example.toysocialnetworkgui.service.ServiceMessage;
-import com.example.toysocialnetworkgui.service.ServicePrietenie;
-import com.example.toysocialnetworkgui.service.ServiceUtilizator;
+import com.example.toysocialnetworkgui.service.*;
 import com.example.toysocialnetworkgui.utils.Observer;
 import com.example.toysocialnetworkgui.repository.paging.Page;
 import com.example.toysocialnetworkgui.repository.paging.Pageable;
@@ -33,6 +30,7 @@ public class UserController implements Observer {
     private ServicePrietenie servicePrietenie;
     private ServiceCerere serviceCerere;
     private ServiceMessage serviceMessage;
+    private ServiceLogin serviceLogin;
 
     @FXML
     Button previousButton;
@@ -67,6 +65,8 @@ public class UserController implements Observer {
     }
 
     public void setServiceMessage(ServiceMessage serviceMessage) {this.serviceMessage = serviceMessage;}
+
+    public void setServiceLogin(ServiceLogin serviceLogin) {this.serviceLogin = serviceLogin;}
 
     public void initialize()
     {
@@ -125,32 +125,32 @@ public class UserController implements Observer {
         }
     }
 
-    public void requestsButtonHandle() throws IOException {
-        Utilizator updatedUser = usersTableView.selectionModelProperty().get().getSelectedItem();
-        if(updatedUser != null) {
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-requests-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle("Cereri User");
-            UserRequestsController userRequestsController = fxmlLoader.getController();
-            userRequestsController.setUser(updatedUser);
-            userRequestsController.setServiceCerere(serviceCerere, servicePrietenie, serviceUtilizator);
-            stage.setScene(scene);
-            stage.show();
-        }
-
-    }
-
-    public void messagesButtonHandle() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-messages-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Mesaje");
-        UserMessagesController userMessagesController = fxmlLoader.getController();
-        userMessagesController.setServiceMessages(serviceMessage,serviceUtilizator);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void requestsButtonHandle() throws IOException {
+//        Utilizator updatedUser = usersTableView.selectionModelProperty().get().getSelectedItem();
+//        if(updatedUser != null) {
+//            Stage stage = new Stage();
+//            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-requests-view.fxml"));
+//            Scene scene = new Scene(fxmlLoader.load());
+//            stage.setTitle("Cereri User");
+//            UserRequestsController userRequestsController = fxmlLoader.getController();
+//            userRequestsController.setUser(updatedUser);
+//            userRequestsController.setServiceCerere(serviceCerere, servicePrietenie, serviceUtilizator);
+//            stage.setScene(scene);
+//            stage.show();
+//        }
+//
+//    }
+//
+//    public void messagesButtonHandle() throws IOException {
+//        Stage stage = new Stage();
+//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-messages-view.fxml"));
+//        Scene scene = new Scene(fxmlLoader.load());
+//        stage.setTitle("Mesaje");
+//        UserMessagesController userMessagesController = fxmlLoader.getController();
+//        userMessagesController.setServiceMessages(serviceMessage,serviceUtilizator);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     private void handlePageNavigationChecks(){
         previousButton.setDisable(currentPage == 0);
@@ -184,4 +184,19 @@ public class UserController implements Observer {
     }
 
 
+    public void loginButtonHandle() throws IOException {
+        Utilizator updatedUser = usersTableView.selectionModelProperty().get().getSelectedItem();
+        if(updatedUser != null) {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-login-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            stage.setTitle("Login User");
+            UserLoginController userLoginController = fxmlLoader.getController();
+            userLoginController.setUser(updatedUser);
+            userLoginController.setServiceLogin(serviceLogin);
+            userLoginController.setService(serviceCerere,serviceMessage,servicePrietenie,serviceUtilizator);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
 }

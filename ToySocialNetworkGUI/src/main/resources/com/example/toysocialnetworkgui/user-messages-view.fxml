@@ -12,7 +12,6 @@
       <ListView fx:id="messagesListView" layoutX="236.0" prefHeight="356.0" prefWidth="301.0" />
       <VBox layoutY="1.0" prefHeight="356.0" prefWidth="238.0" spacing="100.0">
          <children>
-            <ComboBox fx:id="userFromComboBox" prefHeight="55.0" prefWidth="240.0" />
             <ComboBox fx:id="userToComboBox" prefHeight="60.0" prefWidth="242.0" />
             <Button mnemonicParsing="false" onAction="#accessButtonHandler" text="Acceseaza Conversatie">
                <VBox.margin>

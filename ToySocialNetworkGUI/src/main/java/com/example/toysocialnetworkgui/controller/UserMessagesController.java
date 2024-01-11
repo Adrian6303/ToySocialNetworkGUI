@@ -39,6 +39,12 @@ public class UserMessagesController implements Observer {
     public ComboBox<Utilizator> userToComboBox;
 
 
+
+
+    public void setUser(Utilizator utilizator)
+    {
+        user1 = utilizator;
+    }
     public void setServiceMessages(ServiceMessage serviceMessage, ServiceUtilizator serviceUser) {
         this.serviceMessage = serviceMessage;
         this.serviceUser = serviceUser;
@@ -70,10 +76,10 @@ public class UserMessagesController implements Observer {
 
     public void initData()
     {
-        userFromComboBox.setPromptText("Primul user");
-        ObservableList<Utilizator> lista1 = FXCollections.observableArrayList();
-        lista1.addAll(StreamSupport.stream(serviceUser.findAll().spliterator(), false).toList());
-        userFromComboBox.getItems().addAll(lista1);
+//        userFromComboBox.setPromptText("Primul user");
+//        ObservableList<Utilizator> lista1 = FXCollections.observableArrayList();
+//        lista1.addAll(StreamSupport.stream(serviceUser.findAll().spliterator(), false).toList());
+//        userFromComboBox.getItems().addAll(lista1);
 
         userToComboBox.setPromptText("Al doilea user");
         ObservableList<Utilizator> lista2 = FXCollections.observableArrayList();
@@ -88,7 +94,7 @@ public class UserMessagesController implements Observer {
     }
 
     public void accessButtonHandler() throws IOException {
-        user1 = userFromComboBox.getSelectionModel().getSelectedItem();
+        //user1 = userFromComboBox.getSelectionModel().getSelectedItem();
         user2 = userToComboBox.getSelectionModel().getSelectedItem();
         messagesListView.setItems(
                 FXCollections.observableArrayList(
